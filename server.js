@@ -5,14 +5,17 @@ const userRoutes = require('./routes/users')
 
 const server = express()
 
+
+
 // Middleware
 
-server.engine('hbs', hbs({extname: 'hbs'}))
+server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
-server.use(express.urlencoded({extended: true}))
+server.use(express.urlencoded({ extended: true }))
 
 // Routes
 
 server.use('/', userRoutes)
+server.use(express.static('public'))
 
 module.exports = server
